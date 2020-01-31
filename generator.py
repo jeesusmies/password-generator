@@ -80,7 +80,6 @@ if passwordChoice == 1:
 
     with open('passwords.txt', 'a+') as file:
         file.write(f'Service: {service}\nPassword: {password}\n\n')
-        file.close()
 
 # Here begins the generation of the weak password. Although short, this might be a bit more complex for a beginner.
 # (please forgive me if the comments are crap)
@@ -101,4 +100,3 @@ else:
 
         with open('passwords.txt', 'a+') as file:
             file.write(f'Service: {service}\nPassword: {password}\n\n')
-            file.close()
