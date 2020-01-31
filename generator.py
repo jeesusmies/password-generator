@@ -5,7 +5,6 @@ import sys
 import os.path
 
 passwordLengthConfirmed = False
-notInputted = True
 chars = string.ascii_letters + string.digits + '!@#$%*'
 digits = string.digits
 
@@ -13,7 +12,7 @@ print("TOTALLY NOT A RIPOFF FROM BYTE\nHello! Welcome to Ilhu's *REFINED* passwo
 
 # Loops this loop until a number has been inputted.
 # Same loop can be seen in every input, that requires a number.
-while notInputted:
+while True:
     try:
         passwordChoice = int(input(">> "))
     except ValueError:
@@ -22,8 +21,7 @@ while notInputted:
         print("Something went wrong.. exiting.")
         sys.exit(0)
     else:
-        notInputted = False
-notInputted = True
+        break
 
 # My stupid way to deal with adding the random numbers into an password.
 # Turns a list into a string, as the name says.
@@ -37,7 +35,7 @@ def turn_list_into_string(list):
 if passwordChoice == 1:
     print("How lengthy of a password would you like? (suggested: 8)")
 
-    while notInputted:
+    while True:
         try:
             passwordLength = int(input(">> "))
         except ValueError:
@@ -46,19 +44,18 @@ if passwordChoice == 1:
             print("Something went wrong.. exiting.")
             sys.exit(0)
         else:
-            notInputted = False
-    notInputted = True
+            break
 
     # If password is shorter than 4, ask to confirm the decision, to reduce possible wasted time.
     if passwordLength < 4:
         print("This is a very short password.. Are you sure? (y/n)")
-        if input(">> ").lower == "y":
+        if input(">> ").lower() == "y":
             print("Alright, continuing.")
         else:
             print("Okay, please enter your password length.")
             # Since user inputted 'n' (or something else) make the user be asked the password length, until the requirement has been achieved.
             while True:
-                while notInputted:
+                while True:
                     try:
                         passwordLength = int(input(">> "))
                     except ValueError:
@@ -67,7 +64,7 @@ if passwordChoice == 1:
                         print("Something went wrong.. exiting.")
                         sys.exit(0)
                     else:
-                        notInputted = False
+                        break
                 notInputted = True
                 if passwordLength < 4:
                     print("It's still too short. Enter a longer one.")
